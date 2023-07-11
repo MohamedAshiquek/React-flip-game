@@ -1,38 +1,112 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   text-align: center;
+ 
+ 
+ 
+}
+body{
+width: 100%;
+height: 100%;
+}
+main{
+ padding: 30px;
+  background-color: rgb(33, 33, 32);
+  height: 609px;
+}
+h1{
+ font-size: 38px;
+ font-family: 'Courier New', Courier, monospace;
+ color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 150px;
+
+
+  perspective: 1000px;
+ 
+ 
+
+}
+.condainer{
+ padding: 10px;
+ padding-left: 60px;
+ padding-right: 60px;
+ width: 100%;
+ 
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+
+
+
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+
+.flip-card.active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+
+.flip-card-front {
+  background-color: #464649;
+ 
+  border-radius: 10px;
+}
+.game-combleted{
+background-color: rgba(0, 0, 0, 0.544);
+position: absolute;
+  inset: 0;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: grid;
+ 
+
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+
+.flip-card-back {
+  background-color: rgb(11, 14, 17);
+color: #e3dfdf;
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+  font-size: 400%;
+  border-radius: 10px;
+}
+@media(max-width: 700px){
+  .flip-card-back {
+    background-color: rgb(11, 14, 17);
+  color: #e3dfdf;
+    transform: rotateY(180deg);
+    display: grid;
+    place-items: center;
+    font-size: 200%;
+    border-radius: 10px;
   }
 }
+  
